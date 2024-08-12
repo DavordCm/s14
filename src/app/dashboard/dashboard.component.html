@@ -1,0 +1,19 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+    </button>
+    <span (click)="irHome()">Muni Chorrillos</span>&nbsp;&nbsp;
+    &nbsp;&nbsp;
+    <button mat-flat-button (click)="irPost()">Empleado</button>
+    &nbsp;&nbsp;
+    <button mat-flat-button (click)="irCategory()">Horario</button>
+    &nbsp;&nbsp;
+    <button mat-flat-button (click)="irProducto()">Personal</button>
+    <span class="example-spacer"></span>
+    <button (click)="Salir() "mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+<hr />
+
+<router-outlet> </router-outlet>
