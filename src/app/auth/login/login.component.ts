@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../angular-material/material/material.module';
-import { Route } from 'react-router-dom';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [MaterialModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
@@ -18,9 +17,8 @@ export class LoginComponent {
   ){
     
   }
-  submit(usuario: HTMLInputElement, 
-    password: HTMLInputElement){
+  submit(usuario: HTMLInputElement, password: HTMLInputElement){
       this.authService.login(usuario.value, password.value)
-      this.router.navigateByUrl("/dashboard")
+      this.router.navigateByUrl("/dashboard", {replaceUrl: true });
     }
 }

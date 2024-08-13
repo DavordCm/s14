@@ -10,7 +10,7 @@ import { AuthService } from '../auth/auth.service';
   standalone: true,
   imports: [RouterOutlet, MaterialModule],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
   
@@ -34,7 +34,7 @@ export class DashboardComponent {
   }
   Salir(){
     this.authService.logout()
-    this.router.navigateByUrl("/login")
+    this.router.navigateByUrl("/login", {replaceUrl:true});
   }
   
 
