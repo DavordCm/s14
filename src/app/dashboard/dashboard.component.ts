@@ -23,15 +23,35 @@ export class DashboardComponent {
   irHome(){
     this.router.navigate(["home"],{relativeTo:this.route})
   }
-  irProducto(){
-    this.router.navigate(["product"],{relativeTo:this.route})
+  irEmpleado(){
+    this.router.navigate(["empleado"],{relativeTo:this.route})
   }
-  irCategory(){
-    this.router.navigate(["category"],{relativeTo:this.route})
+  irHorario(){
+    this.router.navigate(["horario"],{relativeTo:this.route})
   }
-  irPost(){
-    this.router.navigate(["post"],{relativeTo:this.route})
+  irPersonal(){
+    this.router.navigate(["personal"],{relativeTo:this.route})
   }
+  irMulta(){
+  this.router.navigate(["multa"],{relativeTo:this.route})
+  }
+  irArea(){
+    this.router.navigate(["area"],{relativeTo:this.route})
+  }
+  irDeposito(){
+    this.router.navigate(["deposito"],{relativeTo:this.route})
+  }
+  irControl(){
+    this.router.navigate(["control"],{relativeTo:this.route})
+  }
+  irComprobante(){
+    this.router.navigate(["comprobante"],{relativeTo:this.route})
+  }
+  irUsuario(){
+    this.router.navigate(["usuario"],{relativeTo:this.route})
+  }
+  
+
   Salir(){
     this.authService.logout()
     this.router.navigateByUrl("/login", {replaceUrl:true});
