@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-deposito',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './deposito.component.html',
-  styleUrl: './deposito.component.css'
+  styleUrls: ['./deposito.component.css']
 })
 export class DepositoComponent {
+depositos: any;
 
 }

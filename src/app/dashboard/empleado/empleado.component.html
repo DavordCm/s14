@@ -1,19 +1,45 @@
-<section>
-    <div class="example-label">Raised</div>
-    <div class="example-button-row">
-    <button mat-raised-button>Basic</button>
-    <button mat-raised-button disabled>Disabled</button>
-    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+<div class="container mt-5">
+    <div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+        <h1>Gestión de Empleados</h1>
+        <button class="btnEmpleado">Agregar Empleado</button>
+        </div>
+        <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Fecha de Ingreso</th>
+            <th>Estado Activo</th>
+            <th>Estado Civil</th>
+            <th>Nro de Identidad</th>
+            <th>Tipo de Documento</th>
+            <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let empleado of empleados">
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.apellidoPaterno }}</td>
+            <td>{{ empleado.apellidoMaterno }}</td>
+            <td>{{ empleado.email }}</td>
+            <td>{{ empleado.telefono }}</td>
+            <td>{{ empleado.direccion }}</td>
+            <td>{{ empleado.fechaIngreso | date:'dd/MM/yy HH:mm:ss' }}</td>
+            <td><input type="checkbox" [checked]="empleado.activo" disabled></td>
+            <td>{{ empleado.estadoCivil }}</td>
+            <td>{{ empleado.nroIdentidad }}</td>
+            <td>{{ empleado.tipoDocumento }}</td>
+            <td>
+            </td>
+            </tr>
+        </tbody>
+        </table>
     </div>
-</section>
-
-<section>
-    <div class="example-label">Basic</div>
-    <div class="example-button-row">
-    <button mat-button>Basic</button>
-    <button mat-button disabled>Disabled</button>
-    <a mat-button href="https://www.google.com/" target="_blank">Link</a>
     </div>
-</section>
-
-<hr/>
+</div>

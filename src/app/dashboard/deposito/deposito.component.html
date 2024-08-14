@@ -1,1 +1,44 @@
-<p>deposito works!</p>
+<div class="container mt-5">
+    <div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+        <h5>Mantenimiento de Depósitos</h5>
+        <button class="btn btn-primary">Agregar</button>
+        </div>
+        
+        <input
+        type="text"
+        class="form-control my-3"
+        placeholder="Buscar..."
+        />
+        
+        <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>#</th>
+            &nbsp;&nbsp;
+            <th>Depósito</th>
+            &nbsp;&nbsp;
+            <th>Dirección</th>
+            &nbsp;&nbsp;
+            <th>Encargado</th>
+            &nbsp;&nbsp;
+            <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let deposito of depositos; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ deposito.nombre }}</td>
+            <td>{{ deposito.direccion }}</td>
+            <td>{{ deposito.encargado }}</td>
+            <td>
+                <button class="btn btn-info btn-sm">Actualizar</button>
+                <button class="btn btn-danger btn-sm">Eliminar</button>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    </div>
+</div>

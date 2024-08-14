@@ -1,0 +1,52 @@
+header h1{
+    margin: 0;
+    font-size: 2em;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.btnEmpleado {
+    background-color: #007bff;
+    align-self: center;
+    margin-top: 20px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-body {
+    padding: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
