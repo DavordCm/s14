@@ -1,95 +1,85 @@
 <div class="container mt-5">
-    <div class="card">
+  <div class="card">
     <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center">
         <h1>Gestión de Empleados</h1>
         <button class="btnEmpleado">Agregar Empleado</button>
-        </div>
-        <table class="table table-striped mt-3">
-            
-        <thead>
-            <tr>
-            <th>Nombre</th>
-            <th>Apellido Paterno</th>
-            <th>Apellido Materno</th>
-            <th>Email</th>
-            <th>Teléfono</th>
-            <th>Dirección</th>
-            <th>Fecha de Ingreso</th>
-            <th>Estado Activo</th>
-            <th>Estado Civil</th>
-            <th>Nro de Identidad</th>
-            <th>Tipo de Documento</th>
-            <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            <tr *ngFor="let empleado of empleados">
-            <td>{{ empleado.nombre }}</td>
-            <td>{{ empleado.apellidoPaterno }}</td>
-            <td>{{ empleado.apellidoMaterno }}</td>
-            <td>{{ empleado.email }}</td>
-            <td>{{ empleado.telefono }}</td>
-            <td>{{ empleado.direccion }}</td>
-            <td>{{ empleado.fechaIngreso | date:'dd/MM/yy HH:mm:ss' }}</td>
-            <td><input type="checkbox" [checked]="empleado.activo" disabled></td>
-            <td>{{ empleado.estadoCivil }}</td>
-            <td>{{ empleado.nroIdentidad }}</td>
-            <td>{{ empleado.tipoDocumento }}</td>
-            <td>
-            </td>
-            </tr>
-        </tbody>
-        </table>
+      </div>
+      <table mat-table [dataSource]="empleado" class="mat-elevation-z8">
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let empleado"> {{empleado.nombre}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="apellidoPaterno">
+          <th mat-header-cell *matHeaderCellDef> Apellido Paterno </th>
+          <td mat-cell *matCellDef="let empleado"> {{empleado.apellidoPaterno}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="apellidoMaterno">
+          <th mat-header-cell *matHeaderCellDef> Apellido Materno </th>
+          <td mat-cell *matCellDef="let empleado"> {{empleado.apellidoMaterno}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let empleado"> {{empleado.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="telefono">
+          <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+          <td mat-cell *matCellDef="let empleado"> {{empleado.telefono}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="direccion">
+          <th mat-header-cell *matHeaderCellDef> Dirección </th>
+          <td mat-cell *matCellDef="let empleado"> {{empleado.direccion}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fechaIngreso">
+          <th mat-header-cell *matHeaderCellDef> Fecha de Ingreso </th>
+          <td mat-cell *matCellDef="let empleado"> {{empleado.fechaIngreso | date:'dd/MM/yy HH:mm:ss'}} </td>
+          
+        </ng-container>
+
+        <ng-container matColumnDef="estadoActivo">
+          <th mat-header-cell *matHeaderCellDef> Estado Activo </th>
+          <td mat-cell *matCellDef="let empleado"> <input type="checkbox" [checked]="empleado.estadoActivo" disabled></td>
+        </ng-container>
+
+        <ng-container matColumnDef="estadoCivil">
+          <th mat-header-cell *matHeaderCellDef> Estado Civil </th>
+          <td mat-cell *matCellDef="let empleado"> {{empleado.estadoCivil}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nroIdentidad">
+          <th mat-header-cell *matHeaderCellDef> Nro de Identidad </th>
+          <td mat-cell *matCellDef="let empleado"> {{empleado.nroIdentidad}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipoDocumento">
+          <th mat-header-cell *matHeaderCellDef> Tipo de Documento </th>
+          <td mat-cell *matCellDef="let empleado"> {{empleado.tipoDocumento}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let empleado" class="action-buttons">
+            <button mat-raised-button color="primary" (click)="actualizarEmpleado(empleado)">
+              <mat-icon>edit</mat-icon>
+              Actualizar
+            </button>
+            <button mat-raised-button color="warn" (click)="eliminarEmpleado(empleado)">
+              <mat-icon>delete</mat-icon>
+              Eliminar
+            </button>
+          </td>
+          
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     </div>
-    <table mat-table [dataSource]="data" class="mat-elevation-z8">
-      <!-- Implicit Column -->
-      <ng-container matColumnDef="$implicit">
-        <th mat-header-cell *matHeaderCellDef> $implicit </th>
-        <td mat-cell *matCellDef="let data"> {{data}} </td>
-      </ng-container>
-    
-      <!-- Index Column -->
-      <ng-container matColumnDef="index">
-        <th mat-header-cell *matHeaderCellDef> index </th>
-        <td mat-cell *matCellDef="let index = index"> {{index}} </td>
-      </ng-container>
-    
-      <!-- Count Column -->
-      <ng-container matColumnDef="count">
-        <th mat-header-cell *matHeaderCellDef> count </th>
-        <td mat-cell *matCellDef="let count = count"> {{count}} </td>
-      </ng-container>
-    
-      <!-- First Column -->
-      <ng-container matColumnDef="first">
-        <th mat-header-cell *matHeaderCellDef> first </th>
-        <td mat-cell *matCellDef="let first = first"> {{first}} </td>
-      </ng-container>
-    
-      <!-- Last Column -->
-      <ng-container matColumnDef="last">
-        <th mat-header-cell *matHeaderCellDef> last </th>
-        <td mat-cell *matCellDef="let last = last"> {{last}} </td>
-      </ng-container>
-    
-      <!-- Even Column -->
-      <ng-container matColumnDef="even">
-        <th mat-header-cell *matHeaderCellDef> even </th>
-        <td mat-cell *matCellDef="let even = even"> {{even}} </td>
-      </ng-container>
-    
-      <!-- Odd Column -->
-      <ng-container matColumnDef="odd">
-        <th mat-header-cell *matHeaderCellDef> odd </th>
-        <td mat-cell *matCellDef="let odd = odd"> {{odd}} </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    
-      
-    </div>
+  </div>
 </div>

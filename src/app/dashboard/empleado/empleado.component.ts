@@ -1,18 +1,41 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 @Component({
   selector: 'app-empleado',
   standalone: true,
-  imports: [CommonModule,MatTableModule ],
+  imports: [CommonModule,MatTableModule,MatIconModule ],
   templateUrl: './empleado.component.html',
   styleUrls: ['./empleado.component.css']
 })
 export class EmpleadoComponent {
-empleados: any;
-displayedColumns: string[] = ['$implicit', 'index', 'count', 'first', 'last', 'even', 'odd'];
-  data: string[] = ['one', 'two', 'three', 'four', 'five']; 
-
+  displayedColumns: string[] = ['nombre', 'apellidoPaterno', 'apellidoMaterno', 'email', 'telefono', 'direccion', 'fechaIngreso', 'estadoActivo', 'estadoCivil', 'nroIdentidad', 'tipoDocumento', 'acciones'];
+  empleado = [
+    {
+      nombre: ' ',
+      apellidoPaterno: ' ',
+      apellidoMaterno: ' ',
+      email: ' ',
+      telefono: ' ',
+      direccion: ' ',
+      fechaIngreso: new Date(),
+      estadoActivo: true,
+      estadoCivil: ' ',
+      nroIdentidad: ' ',
+      tipoDocumento: ' '
+    },
+  ];
+  actualizarEmpleado(empleado: any) {
+    // Lógica para actualizar al empleado
+    console.log('Actualizar empleado:', empleado);
+  }
+  eliminarEmpleado(empleado: any) {
+    // Lógica para eliminar al empleado
+    console.log('Eliminar empleado:', empleado);
+  }
 }
+

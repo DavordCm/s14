@@ -7,10 +7,12 @@ header h1{
     width: 90%;
     margin: 0 auto;
     text-align: center;
+    
 }
 .card {
     border: 1px solid #ddd;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .table {
@@ -50,3 +52,28 @@ th {
     background-color: #f4f4f4;
     font-weight: bold;
 }
+
+.mat-table-styled {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px; /* Espacio entre botones */
+    justify-content: center;
+  }
+  
+  button {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  button mat-icon {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+  }
+  
