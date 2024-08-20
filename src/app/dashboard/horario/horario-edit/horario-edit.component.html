@@ -1,108 +1,70 @@
 <div class="container">
   <header>
-    <h1>Gestión de Horarios</h1>
-    <button class="create-new" (click)="createHorario()">Crear Horario</button>
+    <h1>Editar Horario</h1>
   </header>
 
-  <div *ngIf="showForm" class="form-container">
-    <h2>Agregar Nuevo Horario</h2>
-    <form [formGroup]="nuevoHorarioForm" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <h2>Modificar Horario</h2>
+    <form [formGroup]="horarioForm" (ngSubmit)="saveChanges()">
       <div class="form-group">
         <label for="empleadoId">ID Empleado</label>
-        <input type="text" id="empleadoId" formControlName="empleadoId" required>
+        <input type="text" id="empleadoId" formControlName="empleadoId" required readonly>
       </div>
-  
+
       <div class="form-group">
         <label for="areaId">ID Área</label>
         <input type="text" id="areaId" formControlName="areaId" required>
       </div>
-  
+
       <div class="form-group">
         <label for="lunes">Lunes</label>
         <input type="checkbox" id="lunes" formControlName="lunes">
       </div>
-  
+
       <div class="form-group">
         <label for="martes">Martes</label>
         <input type="checkbox" id="martes" formControlName="martes">
       </div>
-  
+
       <div class="form-group">
         <label for="miercoles">Miércoles</label>
         <input type="checkbox" id="miercoles" formControlName="miercoles">
       </div>
-  
+
       <div class="form-group">
         <label for="jueves">Jueves</label>
         <input type="checkbox" id="jueves" formControlName="jueves">
       </div>
-  
+
       <div class="form-group">
         <label for="viernes">Viernes</label>
         <input type="checkbox" id="viernes" formControlName="viernes">
       </div>
-  
+
       <div class="form-group">
         <label for="sabado">Sábado</label>
         <input type="checkbox" id="sabado" formControlName="sabado">
       </div>
-  
+
       <div class="form-group">
         <label for="domingo">Domingo</label>
         <input type="checkbox" id="domingo" formControlName="domingo">
       </div>
-  
+
       <div class="form-group">
         <label for="hingreso">Hora de Ingreso</label>
         <input type="time" id="hingreso" formControlName="hingreso" required>
       </div>
-  
+
       <div class="form-group">
         <label for="hsalida">Hora de Salida</label>
         <input type="time" id="hsalida" formControlName="hsalida" required>
       </div>
-  
-      <button type="submit" [disabled]="nuevoHorarioForm.invalid">Guardar Cambios</button>
-      <button type="button" (click)="onCancel()">Cancelar</button>
+
+      <div class="form-actions">
+        <button type="submit" [disabled]="horarioForm.invalid">Guardar Cambios</button>
+        <button type="button" (click)="cancel()">Cancelar</button>
+      </div>
     </form>
   </div>
-
-  <h2>Horarios</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>ID Empleado</th>
-        <th>Hora de Ingreso</th>
-        <th>Hora de Salida</th>
-        <th>ID Área</th>
-        <th>Lunes</th>
-        <th>Martes</th>
-        <th>Miércoles</th>
-        <th>Jueves</th>
-        <th>Viernes</th>
-        <th>Sábado</th>
-        <th>Domingo</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let horario of horarios">
-        <td>{{ horario.empleadoId }}</td>
-        <td>{{ horario.hingreso }}</td>
-        <td>{{ horario.hsalida }}</td>
-        <td>{{ horario.areaId }}</td>
-        <td>{{ horario.lunes ? 'x' : 'o' }}</td>
-        <td>{{ horario.martes ? 'x' : 'o' }}</td>
-        <td>{{ horario.miercoles ? 'x' : 'o' }}</td>
-        <td>{{ horario.jueves ? 'x' : 'o' }}</td>
-        <td>{{ horario.viernes ? 'x' : 'o' }}</td>
-        <td>{{ horario.sabado ? 'x' : 'o' }}</td>
-        <td>{{ horario.domingo ? 'x' : 'o' }}</td>
-        <td>
-          <button class="edit-btn" (click)="editHorario(horario)">Editar</button>
-          <button class="delete-btn" (click)="onDelete(horario)">Eliminar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </div>

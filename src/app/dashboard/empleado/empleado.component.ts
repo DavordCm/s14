@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 
-
-
 @Component({
   selector: 'app-empleado',
   standalone: true,
@@ -23,18 +21,16 @@ export class EmpleadoComponent {
       telefono: ' ',
       direccion: ' ',
       fechaIngreso: new Date(),
-      estadoActivo: true,
+      estadoActivo: false,
       estadoCivil: ' ',
       nroIdentidad: ' ',
       tipoDocumento: ' '
     },
   ];
   actualizarEmpleado(empleado: any) {
-    // Lógica para actualizar al empleado
     console.log('Actualizar empleado:', empleado);
   }
   eliminarEmpleado(empleado: any) {
-    // Lógica para eliminar al empleado
     console.log('Eliminar empleado:', empleado);
   }
 }
