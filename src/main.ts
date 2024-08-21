@@ -16,6 +16,7 @@ import { AreaComponent } from './app/dashboard/area/area.component';
 import { MultaComponent } from './app/dashboard/multa/multa.component';
 import { DepositoComponent } from './app/dashboard/deposito/deposito.component';
 import { ControlVehicularComponent } from './app/dashboard/control-vehicular/control-vehicular.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -42,7 +43,7 @@ const routes: Routes = [
 // Configurar el `appConfig`
 const appConfig = {
   providers: [
-    provideRouter(routes) 
+    provideRouter(routes), provideAnimationsAsync('noop') 
   ],
   bootstrap: [AppComponent] // Aquí defines el componente standalone que inicializará la aplicación
 };
