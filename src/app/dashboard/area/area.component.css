@@ -1,0 +1,17 @@
+/* area.component.css */
+.container {
+    padding: 16px;
+  }
+  
+  .mat-table {
+    width: 100%;
+  }
+  
+  .mat-header-cell {
+    font-weight: bold;
+  }
+  
+  .mat-icon-button {
+    margin: 0 4px;
+  }
+  

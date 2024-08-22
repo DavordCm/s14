@@ -1,0 +1,11 @@
+<h1 mat-dialog-title> {{data.nombre ? 'Actualizar Área' : 'Agregar Área'}} </h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre del Área</mat-label>
+    <input matInput [(ngModel)]="data.nombre">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button (click)="onSave()">Guardar</button>
+</div>

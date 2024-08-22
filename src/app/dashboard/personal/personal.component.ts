@@ -17,11 +17,10 @@ import { Personal } from './personal.interface';
 })
 export class PersonalComponent {
   displayedColumns: string[] = [
-    'nombre',
-    'apellidoPaterno',
-    'apellidoMaterno',
-    'email',
-    'telefono',
+    'empleado',
+    'area',
+    'usuario', 
+    'contrasena',
     'acciones'
   ];
 
@@ -29,7 +28,7 @@ export class PersonalComponent {
 
   constructor(public dialog: MatDialog) {}
 
-  agregarPersonal() {
+  CrearPersonal() {
     const dialogRef = this.dialog.open(PersonalAddDialogComponent, {
       width: '400px'
     });
